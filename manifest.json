@@ -1,0 +1,19 @@
+{
+    "name": "Tabroom Tournament Button",
+    "description": "Adds a button for tournament homepage in Tabroom",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab"],
+    "action": {
+        "default_icon": "128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.tabroom.com/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
