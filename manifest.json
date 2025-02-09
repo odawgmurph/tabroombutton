@@ -33,10 +33,6 @@
         {
             "matches": ["*://www.tabroom.com/index/tourn/postings/round.mhtml*"],
             "js": ["scripts/pairingspage.js"]
-        },
-        {
-            "matches": ["*://*.tabroom.com/index/tourn/postings/entry_record*"],
-            "js": ["scripts/entrypage.js"]
         }
     ],
     "commands": {
