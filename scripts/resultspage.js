@@ -1,4 +1,4 @@
-var targetElement = document.querySelector('.biggish.redtext');
+var targetElement = document.querySelector('.half.graytext.semibold.bigger');
 const currentURL = window.location.href;
 const url = new URL(currentURL);
 
@@ -11,6 +11,7 @@ if (targetElement) {
 
     anchorElement.href = targetURL;
     targetElement.textContent = "Tournament home";
+    targetElement.fontWeight = 'bold';
     while (targetElement.firstChild) {
         anchorElement.appendChild(targetElement.firstChild);
         targetElement.parentNode.replaceChild(anchorElement,targetElement);
