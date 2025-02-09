@@ -1,7 +1,6 @@
 
 // REVEAL COMPETITOR NAMES
 
-// chrome.scripting.executeScript("https://kit.fontawesome.com/c325adad6c.js");
 // find button to replace/replicate
 const existingButton = document.querySelector('[id^="print_"]');
 // make new buttons
