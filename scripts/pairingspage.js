@@ -85,7 +85,9 @@ schoolButton.onclick = function() {
                 element.textContent = studentName + ", " + school;
             }
             // set the element to competitor's name
-            
+            element.style.overflowWrap = 'anywhere';
+            element.style.textWrap = 'wrap';
+            element.title = element.textContent;
         })
     });
     // widen every item for readability
