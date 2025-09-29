@@ -5,6 +5,7 @@
     "description": "Numerous fixes and features for Tabroom.com",
     "version": "1.6.0",
     "manifest_version": 3,
+    "permissions": ["storage"],
     "background": {
         "service_worker": "background/background.js"
     },
@@ -33,6 +34,10 @@
         {
             "matches": ["*://www.tabroom.com/index/tourn/postings/round.mhtml*"],
             "js": ["scripts/pairingspage.js"]
+        },
+        {
+            "matches": ["*://www.tabroom.com/index/tourn/postings/judge.mhtml?judge_id=*"],
+            "js": ["scripts/judgepage.js"]
         }
     ],
     "commands": {
