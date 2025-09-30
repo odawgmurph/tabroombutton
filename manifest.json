@@ -42,7 +42,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["notes/notes.html", "notes/notes.css", "notes/notes.js"],
+            "resources": ["notes/notes.html", "notes/notes.css", "notes/notes.js", "stats/stats.html"],
             "matches": ["*://*.tabroom.com/*"]
         }
     ],
