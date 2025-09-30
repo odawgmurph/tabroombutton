@@ -37,7 +37,13 @@
         },
         {
             "matches": ["*://www.tabroom.com/index/tourn/postings/judge.mhtml?judge_id=*"],
-            "js": ["scripts/judgepage.js"]
+            "js": ["scripts/judgenotes.js", "scripts/judgestats.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["notes/notes.html", "notes/notes.css", "notes/notes.js"],
+            "matches": ["*://*.tabroom.com/*"]
         }
     ],
     "commands": {
