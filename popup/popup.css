@@ -1,0 +1,79 @@
+body, html {
+    width: 800px;
+    height: 600px;
+    overflow-x: hidden;
+}
+
+button {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 10px;
+	color: white;
+    border: solid 3px #3d3d3d;
+    background-color: black;
+}
+
+
+div.main {
+	display: block;
+}
+
+div.settings {
+	display: none;
+}
+
+.iconbut {
+	padding: 10px;
+	font-size: 20px;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+    background-color: black;
+	border: solid 3px #3d3d3d;
+	color: white;
+    cursor: pointer;
+}
+
+button:hover {
+	background-color: #2b2b2b;
+}
+
+.iconbutimg {
+	filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(29deg) brightness(103%) contrast(101%);
+}
+
+.toprow {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    right: 0;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 30%;
+	background-color: black;
+    border: solid 2px #3d3d3d;
+    color: white;
+	margin: 10px;
+}
+
+div.settingslist {
+	display: flex;
+	flex-direction: column;
+}
+
+div.setitem {
+	display: flex; 
+	flex-direction: row;
+	
+}

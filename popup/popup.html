@@ -1,33 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <div class="main" id="main">
+      <div class="toprow">
+        <div class="link">
+          <a href="https://bit.ly/bigskii" target="_blank">SUBSCRIBE TO ME ON YOUTUBE</a>
+        </div>
+        <div class="buttons">
+          <button id="settingsShow" class="iconbut"><img class="iconbutimg" src="../fontawesome/cog.svg"></button>
+          <button id="showCloud" class="iconbut"><img class="iconbutimg" src="../fontawesome/cloud.svg"></button>
+        </div>
+      </div>
+      <div class="box">
+      <textarea rows="4" id="text"></textarea>
+      </div>
+      <p>This window is for mid-speech messages, easy to type and easy to read.</p>
+      <style>
+      html {
+          width: 800px;
+          height: 600px;
+          font-size: 20px;
+          background-color: black;
+      }
 
-<a href="https://bit.ly/bigskii" target="_blank">SUBSCRIBE TO ME ON YOUTUBE</a>
-<div class="box">
-<textarea rows="4" id="text"></textarea>
-</div>
-<p>This window is for mid-speech messages, easy to type and easy to read.</p>
-<style>
-html {
-    width: 800px;
-    height: 600px;
-    font-size: 20px;
-    background-color: black;
-}
+      textarea {
+        width: 750px;
+        height: 500px;
+        font-size: 80px;
+        font-family:'Courier New', Courier, monospace;
+        font-weight: 800;
+        color: white;
+        background-color: black;
+      }
 
-textarea {
-  width: 750px;
-  height: 500px;
-  font-size: 80px;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: 800;
-  color: white;
-  background-color: black;
-}
+      .box {
+        width: 750px;
+      }
 
-.box {
-  width: 750px;
-}
-
-p {
-  color: white;
-}
-</style>
-<script src="popup.js"></script>
+      p {
+        color: white;
+      }
+      </style>
+      <script src="popup.js"></script>
+    </div>
+    <div class="settings" id="settings">
+      <button id="settingsHide" class="iconbut "><img class="iconbutimg" src="../fontawesome/xmark.svg"></button>
+      <div class="settingslist">
+        <div class="setitem">
+          <p>Hype Music</p>
+          <input id="hypesong" type="text" placeholder="URL">
+          <button id="submithype">Save</button>
+        </div>
+      </div>
+    </div>
+  <body>
+</html>

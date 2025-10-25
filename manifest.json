@@ -25,7 +25,7 @@
         },
         {
             "matches": ["*://www.tabroom.com/user/student/index.mhtml*"],
-            "js": ["scripts/currentpage.js"]
+            "js": ["scripts/currentpage.js", "scripts/currentpanel.js"]
         },
         {
             "matches": ["*://www.tabroom.com/user/student/history.mhtml?tourn_id=*"],
@@ -42,7 +42,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["notes/notes.html", "notes/notes.css", "notes/notes.js", "stats/stats.html"],
+            "resources": ["notes/notes.html", "notes/notes.css", "notes/notes.js", "stats/stats.html", "hype/panel.html"],
             "matches": ["*://*.tabroom.com/*"]
         }
     ],

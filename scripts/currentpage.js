@@ -1,6 +1,7 @@
 var targetElement = document.querySelector('span.half.graytext');
 var tourn = document.querySelector('h5.martopmore.padbottom.blueborderbottom.marno');
 var futourns = document.querySelectorAll('.nowrap.semibold span.halfspacer');
+const table = document.querySelector('div.full.nospace table.tablesorter.tablesorter-default.hasResizable.hasStickyHeaders[role="grid"]');
 var futName;
 
 if (tourn !== null)  {
