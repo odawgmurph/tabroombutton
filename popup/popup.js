@@ -20,6 +20,20 @@ document.addEventListener("DOMContentLoaded",  function() {
         document.getElementById("main").style.display = "block";
     })
 
+    chrome.storage.sync.get(["hype"])
+        .then((result => {
+            if (result["hype"] != undefined) {
+                document.getElementById("hypesong").value = result["hype"];
+            }
+        }))
+
+    chrome.storage.sync.get(["flag"])
+        .then((result => {
+            if (result["flag"] != undefined) {
+                document.getElementById("flagrepl").value = result["flag"];
+            }
+        }))
+
     document.getElementById("submithype").addEventListener('click', () => {
         const song = document.getElementById("hypesong").value;
         if (isurl(song)){
@@ -37,5 +51,19 @@ document.addEventListener("DOMContentLoaded",  function() {
         } else {
             
         }
+    })
+
+    document.getElementById("flagrepl").addEventListener("change", () => {
+        chrome.storage.sync.get(["flag"])
+            .then((result => {
+                if (result == undefined) {
+                    let newflag = {"flag": null};
+                    newflag["flag"] = document.getElementById("flagrepl").value;
+                    chrome.storage.sync.set(newflag);
+                } else {
+                    result["flag"] = document.getElementById("flagrepl").value;
+                    chrome.storage.sync.set(result);
+                }
+            }))
     })
 });
