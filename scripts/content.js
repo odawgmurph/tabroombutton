@@ -33,7 +33,7 @@ if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") {
             } else if (result["flag"] == "trans") {
                 overlay.style.backgroundImage = "url(https://lh3.googleusercontent.com/drive-storage/AJQWtBN9EdkyLd0DfVoBgAvrji9X-l0B--0hXyBXGcBR4OJ8i8xC7ja2gwK3_yKDABsdmEIm2jaD1M4_1pnRSvkM-9euC3zlgow4it64SomszhKEdHE=w1901-h988)"
             } else if (result["flag"] == "les") {
-                overlay.style.backgroundImage = "url(https://lh3.googleusercontent.com/drive-storage/AJQWtBNZgqg_k27fwa-7lAUXkM8620O0IAIWIWQFh6_ibpPf5Wc1yfgAtLO0bFM570PCYt_j9nOEKPgIpwwDSi6HlxxKrlMG4oqulJJkbC_GXGsFv8E=w1901-h988)"
+                overlay.style.backgroundImage = "url(https://lh3.googleusercontent.com/drive-storage/AJQWtBMpn2Cs93oPypezAu8C2c0sxULffyObQqqVUo6ERhwU0Q-iDmbH5LPUP6sYTcoDHIWVkRjiFr8ABZVVtTKcG2CoZiyLtHeF21BHUDSH42K27Q=w1901-h988)"
             } else if (result["flag"] == "nb") {
                 overlay.style.backgroundImage = "url(https://lh3.googleusercontent.com/drive-storage/AJQWtBNNStaMSasvhuDmU1rwMIQBVJbfcCF8YrSn-yd9u9FSxVow64TJ4Bj3tqiV_LRqkCOCzc82CNGrNHI9X9Yrwi8Yz7mal28iVYcvrdFv2VX4kFY=w1901-h988)"
             } else if (result["flag"] == "ace") {
