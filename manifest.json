@@ -1,7 +1,7 @@
 {
 "update_url": "https://clients2.google.com/service/update2/crx",
 
-    "name": "Tabroom Tournament Button",
+    "name": "Tabroom Button",
     "description": "Numerous fixes and features for Tabroom.com",
     "version": "2.1.2",
     "manifest_version": 3,
