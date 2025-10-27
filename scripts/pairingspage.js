@@ -110,7 +110,7 @@ nameButton.parentNode.insertBefore(schoolButton, nameButton.nextSibling);
 // JUDGE GOOGLE LINK
 //
 // find each judge name
-document.querySelectorAll('.full.padless.nowrap').forEach(element => { 
+document.querySelectorAll('tr td.smallish div.full div.full.padvertless.flexrow.nowrap.padleft').forEach(element => { 
     // turn it into a link
     var wrappedtext = document.createElement("a");
     // get commad judge name
