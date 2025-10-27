@@ -3,7 +3,7 @@
 
     "name": "Tabroom Tournament Button",
     "description": "Numerous fixes and features for Tabroom.com",
-    "version": "2.1.0",
+    "version": "2.1.2",
     "manifest_version": 3,
     "permissions": ["storage"],
     "background": {
