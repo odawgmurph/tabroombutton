@@ -1,3 +1,5 @@
+// again, this page doesn't rlly need to exist anymore. thanks for making your site good mr palmer
+
 var targetElement = document.querySelector('.half.graytext.semibold.bigger');
 const currentURL = window.location.href;
 const url = new URL(currentURL);

@@ -10,24 +10,29 @@
 // profile page
 // entries page
 
+// add logo dropshadow
 document.querySelector("#logo a img").style.filter = "drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5))";
 
+// remove new tabs
 document.querySelectorAll('[target="_blank"]').forEach(element => {
     element.removeAttribute("target");
 });
 
+//ignore
 if (document.URL.startsWith("https://www.tabroom.com/index/tourn/index.mhtml")) {
     document.head.title = document.querySelector("h2.centeralign.marno").textContent;
 }
 
+// tabroom.gay
+
 const overlay = document.getElementById("overlay");
 let overimg = overlay.style.backgroundImage;
 
-if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") {
-    chrome.storage.sync.get(["flag"])
+if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") { // if gay is activated
+    chrome.storage.sync.get(["flag"]) // access storage
         .then((result => {
             if (result == undefined || result["flag"] == "gay") {
-                
+                // nothing needs to be done for gay flag
             } else if (result["flag"] == "bi") {
                 overlay.style.backgroundImage = "url(https://i.imgur.com/WpmYHAh.png)";
             } else if (result["flag"] == "trans") {

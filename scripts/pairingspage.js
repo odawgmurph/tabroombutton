@@ -129,5 +129,5 @@ document.querySelectorAll('tr td.smallish div.full div.full.padvertless.flexrow.
     while (element.firstChild) {
         wrappedtext.appendChild(element.firstChild);
     }
-    element.appendChild(wrappedtext);
+    element.appendChild(wrappedtext); // add element to document
 });

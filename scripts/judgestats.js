@@ -1,10 +1,14 @@
-const nowdate = new Date()
-const thisyear = nowdate.getFullYear();
-const thismonth = nowdate.getMonth()+1;
-let thistopic = "";
-if (thismonth === 9 || thismonth === 10) {
+// this feature was a HEADACHE to write and is by far the longest file on the extension. thanks to tabhelper for laying some basework 
+
+const nowdate = new Date() //get date
+const thisyear = nowdate.getFullYear(); // year
+const thismonth = nowdate.getMonth()+1; // month
+let thistopic = ""; // define topic var
+
+// topic finder
+if (thismonth === 9 || thismonth === 10) { //double month topic
     thistopic = "septober"
-} else if (thismonth === 11 || thismonth === 12) {
+} else if (thismonth === 11 || thismonth === 12) { // double month topic
     thistopic = "nocember"
 } else if (thismonth === 1) {
     thistopic = "january"
@@ -19,6 +23,10 @@ if (thismonth === 9 || thismonth === 10) {
 } else if (thismonth === 6) {
     thistopic = "june"
 }
+
+// base data formatting. originally this feature was supposed to have a 
+// specific category for world schools (i wrote it largely during yale) but i realized it didn't rlly matter, 
+// so when you see 'ws' referenced in the following code, it truly serves as an 'other' category
 const tourns = [];
 const years = [];
 const pftopic = [];
@@ -27,24 +35,26 @@ const wstopic = [];
 const pftotal = [];
 const ldtotal = [];
 const wstotal = [];
-let rows = document.querySelectorAll(".smallish tr");
+let rows = document.querySelectorAll(".smallish tr"); //judge history table rows
 rows.forEach((r, i) => {
-    const rowitems = r.children;
+    const rowitems = r.children; //cols in each row
     tourns.push({
-        "date": rowitems[2].querySelector(".hidden").textContent.trim(),
-        "category": rowitems[3].textContent.trim(),
-        "vote": rowitems[7].textContent.trim()
+        "date": rowitems[2].querySelector(".hidden").textContent.trim(), // access when (for topic) -- note the hidden. each date col has the unix time hidden inside it
+        "category": rowitems[3].textContent.trim(), // access category
+        "vote": rowitems[7].textContent.trim() // access vote
     })
 });
 
 const formattedtourns = [];
 tourns.forEach(tourn => {
-    const date = new Date(parseInt(tourn.date)*1000);
-    const month = date.getMonth()+1
+    const date = new Date(parseInt(tourn.date)*1000); // convert round date to js date
+    const month = date.getMonth()+1 // get that month
+    // various inits
     let category = "";
     let vote = "";
     let topic = "";
 
+    // topic specifier, this time specifically for the vote's date. this could be optimized
     if (month === 9 || month === 10) {
         topic = "septober"
     } else if (month === 11 || month === 12) {
@@ -63,6 +73,7 @@ tourns.forEach(tourn => {
         topic = "june"
     }
 
+    //topic specifier
     if (tourn.category.includes("PF")) {
         category = "PF"
     } else if (tourn.category.includes("LD")) {
@@ -72,13 +83,13 @@ tourns.forEach(tourn => {
     }
 
 
-
+    // unifies vote formats, more may need to be added in the future
     if (tourn.vote.includes("Neg") || tourn.vote.includes("Con")) {
         vote = "Neg";
     } else {
         vote = "Aff";
     }
-    formattedtourns.push({
+    formattedtourns.push({ // creates a full array of objects containing vote stats
         "year": date.getFullYear(),
         "month": date.getMonth()+1,
         "topic": topic,
@@ -87,8 +98,9 @@ tourns.forEach(tourn => {
     })
 });
 
+// access said array
 formattedtourns.forEach(tourn => {
-    if (tourn.topic === thistopic && tourn.year === thisyear) {
+    if (tourn.topic === thistopic && tourn.year === thisyear) { //current topic stats segregated by cat
         if (tourn.category === "PF") {
             pftopic.push(tourn)
         } else if (tourn.category === "LD") {
@@ -97,7 +109,8 @@ formattedtourns.forEach(tourn => {
             wstopic.push(tourn)
         }
     }
-    if (tourn.category === "PF") {
+    // topic stats regardless of topic for whatever rzn
+    if (tourn.category === "PF") { 
         pftotal.push(tourn)
     } else if (tourn.category === "LD") {
         ldtotal.push(tourn)
@@ -109,9 +122,14 @@ formattedtourns.forEach(tourn => {
     }
 })
 
-const yearcount = years.length;
+const yearcount = years.length; // easy peasy, years participated
 
-let pfpct, pflead, topicpfpct, topicpflead, ldpct, ldlead, topicldpct, topicldlead, wspct, wslead, topicwspct, topicwslead
+let pfpct, pflead, topicpfpct, topicpflead, ldpct, ldlead, topicldpct, topicldlead, wspct, wslead, topicwspct, topicwslead // init a whole lot of variables. get ready to scroll
+
+// you're gonna have to take a guess as to what my logic was in writing this code, 
+// because i have no clue what visions were running through my head
+// as i wrote this stuff. i might have been on lsd. all i know is that it works.. enough
+// good luck young freshman
 
 const pfaff = []
 const pfneg = []
