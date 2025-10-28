@@ -9,6 +9,12 @@ function isurl(string) { // function to see if a string is a functioning url
 
 document.addEventListener("DOMContentLoaded",  function() { //  so as to make sure that the html is runnign
     document.getElementById("text").focus(); // highlight the textarea element
+
+    function changeflagevent() {
+        var updateflag = document.createEvent('Event');
+        updateflag.initEvent('updateflag', true, false); // just want to make sure it's clear that this command was deprecated when i wrote it
+        document.dispatchEvent(updateflag);
+    }
     
     document.getElementById("settingsShow").addEventListener('click', () => { // open the settings screen
         document.getElementById("settings").style.display = "block";
@@ -60,9 +66,11 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
                     let newflag = {"flag": null}; // inits flag object
                     newflag["flag"] = document.getElementById("flagrepl").value; // set to flag object
                     chrome.storage.sync.set(newflag);
+                    changeflagevent();
                 } else { // update protocol
                     result["flag"] = document.getElementById("flagrepl").value; 
                     chrome.storage.sync.set(result);
+                    changeflagevent();
                 }
             }))
     })

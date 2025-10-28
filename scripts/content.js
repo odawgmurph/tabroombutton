@@ -31,6 +31,29 @@ let overimg = overlay.style.backgroundImage;
 if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") { // if gay is activated
     chrome.storage.sync.get(["flag"]) // access storage
         .then((result => {
+            if (document.getElementById("tabroom_edlee").textContent.trim() == "cbrennan27@regis.org") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/EYVjxVR.png)"
+            } else if (result == undefined || result["flag"] == "gay") {
+                // nothing needs to be done for gay flag
+            } else if (result["flag"] == "bi") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/WpmYHAh.png)";
+            } else if (result["flag"] == "trans") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/zPVHFnM.png)";
+            } else if (result["flag"] == "les") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/GfdjQ1p.png)";
+            } else if (result["flag"] == "nb") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/7MDyUuG.png)";
+            } else if (result["flag"] == "ace") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/EVBGuns.png)";
+            } else if (result["flag"] == "ger") {
+                overlay.style.backgroundImage = "url(https://i.imgur.com/zUCfnua.png)";
+            }
+        }))
+}
+
+document.addEventListener('updateflag', () => {
+    chrome.storage.sync.get(["flag"]) // access storage
+        .then((result => {
             if (result == undefined || result["flag"] == "gay") {
                 // nothing needs to be done for gay flag
             } else if (result["flag"] == "bi") {
@@ -47,4 +70,4 @@ if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") { // if 
                 overlay.style.backgroundImage = "url(https://i.imgur.com/GfdjQ1p.png)";
             }
         }))
-}
+})
