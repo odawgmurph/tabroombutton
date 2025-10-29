@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
                 .then((result => {
                     if (result["hype"] == undefined) { // new hype protocol
                         let newhype = {"hypesong": ""};
-                        newhype["hypesong"] = song;
+                        newhype["hype"] = song;
                         chrome.storage.sync.set(newhype); // set the url 
                     } else { //update protocol
                         result["hype"] = song;
