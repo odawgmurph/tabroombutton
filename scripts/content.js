@@ -31,6 +31,7 @@ let overimg = overlay.style.backgroundImage;
 if (overlay.style.backgroundImage != "url(/lib/images/lens-flair.png)") { // if gay is activated
     chrome.storage.sync.get(["flag"]) // access storage
         .then((result => {
+            overlay.style.backgroundPosition = "-18px -36px";
             if (document.getElementById("tabroom_edlee").textContent.trim() == "cbrennan27@regis.org") {
                 overlay.style.backgroundImage = "url(https://i.imgur.com/EYVjxVR.png)"
             } else if (result == undefined || result["flag"] == "gay") {
