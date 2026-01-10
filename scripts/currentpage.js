@@ -52,4 +52,26 @@ if (tourn !== null)  {
     postData();
 };
 
+function savetable() {
+    const table = document.querySelector("table.tablesorter");
+    chrome.storage.local.get(["tables"])
+        .then((result) => {
+            if(result["tables"] == undefined) {
+                let newtables = {"tables": []};
+                newtables["tables"].push(table.outerHTML);
+                chrome.storage.local.set(newtables);
+            } else {
+                result["tables"].push(table.outerHTML);
+                chrome.storage.local.set(result);
+            }
+        })
+
+}
+
+const cloudbutton = document.createElement("a");
+cloudbutton.className = "fa buttonwhite greentext fa-cloud-download invert";
+cloudbutton.title = "Save table for offine use";
+cloudbutton.style.cursor = "pointer";
+cloudbutton.addEventListener("click", savetable);
+document.querySelector(".fa.buttonwhite.bluetext.fa-external-link.invert").parentNode.insertBefore(cloudbutton, document.querySelector(".fa.buttonwhite.bluetext.fa-external-link.invert").nextSibling)
 

@@ -26,6 +26,16 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
         document.getElementById("main").style.display = "block";
     })
 
+    document.getElementById("showCloud").addEventListener('click', () => { // close the settings screen
+        document.getElementById("offline").style.display = "block";
+        document.getElementById("main").style.display = "none";
+    })
+
+    document.getElementById("offlineHide").addEventListener('click', () => { // close the settings screen
+        document.getElementById("offline").style.display = "none";
+        document.getElementById("main").style.display = "block";
+    })
+
     chrome.storage.sync.get(["hype"]) // access hype storage
         .then((result => {
             if (result["hype"] != undefined) {
@@ -39,6 +49,15 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
                 document.getElementById("flagrepl").value = result["flag"]; // set flag dropdown value
             }
         }))
+
+    chrome.storage.local.get(["tables"])
+        .then((result) => {
+            if (result["tables"] != undefined) {
+                result["tables"].forEach(table => {
+                    document.getElementById("tablestore").innerHTML += table;
+                })
+            }
+        })
 
     document.getElementById("submithype").addEventListener('click', () => { // save the hype song url
         const song = document.getElementById("hypesong").value;
@@ -73,5 +92,14 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
                     changeflagevent();
                 }
             }))
+    })
+
+    document.getElementById("offlineClear").addEventListener("click", () => {
+        chrome.storage.local.get(["tables"])
+            .then((result) => {
+                result["tables"] = [];
+                chrome.storage.local.set(result);
+                document.getElementById("tablestore").innerHTML = "";
+            })
     })
 });

@@ -22,6 +22,10 @@ div.settings {
 	display: none;
 }
 
+div.offline {
+	display: none;
+}
+
 .iconbut {
 	padding: 10px;
 	font-size: 20px;
@@ -77,3 +81,18 @@ div.setitem {
 	flex-direction: row;
 	
 }
+
+#tablestore {
+	color: white;
+
+}
+
+#tablestore table, #tablestore th, #tablestore td {
+	border: 1px solid white;
+	border-collapse: collapse
+}
+
+#tablestore table {
+	margin: 10px;
+}
+
