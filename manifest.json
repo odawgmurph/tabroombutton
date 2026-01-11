@@ -3,7 +3,7 @@
 
     "name": "Tabroom Button",
     "description": "Fixes and features for Tabroom.com",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "manifest_version": 3,
     "permissions": ["storage"],
     "background": {
