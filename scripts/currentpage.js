@@ -53,7 +53,7 @@ if (tourn !== null)  {
 };
 
 function savetable() {
-    const table = document.querySelector("div.screens.current");
+    const table = document.querySelector("table.tablesorter");
     chrome.storage.local.get(["tables"])
         .then((result) => {
             if(result["tables"] == undefined) {
