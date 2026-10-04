@@ -50,6 +50,13 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
             }
         }))
 
+     chrome.storage.sync.get(["school"])
+        .then((result => {
+            if (result["school"] != undefined) {
+                document.getElementById("schoolbx").value = result["school"]; // set flag dropdown value
+            }
+        }))
+
     chrome.storage.local.get(["tables"])
         .then((result) => {
             if (result["tables"] != undefined) {
