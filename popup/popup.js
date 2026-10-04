@@ -78,6 +78,21 @@ document.addEventListener("DOMContentLoaded",  function() { //  so as to make su
         }
     })
 
+    document.getElementById("submitsch").addEventListener('click', () => {
+        const school = document.getElementById("schoolbx").value;
+        chrome.storage.sync.get(["school"])
+            .then(result => {
+                if (result["school"] == undefined) {
+                    let news = {"school": ""};
+                    news["school"] = school;
+                    chrome.storage.sync.set(news);
+                } else {
+                    result["school"] = school;
+                    chrome.storage.sync.set(result);
+                }
+            })
+    })
+
     document.getElementById("flagrepl").addEventListener("change", () => { // happens automatically every time its set
         chrome.storage.sync.get(["flag"])
             .then((result => {

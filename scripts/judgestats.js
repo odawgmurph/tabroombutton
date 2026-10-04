@@ -4,6 +4,16 @@ const nowdate = new Date() //get date
 const thisyear = nowdate.getFullYear(); // year
 const thismonth = nowdate.getMonth()+1; // month
 let thistopic = ""; // define topic var
+let school;
+
+chrome.storage.sync.get(["school"])
+    .then((result) => {
+        if (result["school"] === undefined) {
+            school = null
+        } else if (!(result["school"] === undefined)) {
+            school = result["school"]
+        }
+    })
 
 // topic finder
 if (thismonth === 9 || thismonth === 10) { //double month topic
@@ -35,13 +45,18 @@ const wstopic = [];
 const pftotal = [];
 const ldtotal = [];
 const wstotal = [];
+let swins = 0;
+let sloss = 0;
+
 let rows = document.querySelectorAll(".smallish tr"); //judge history table rows
 rows.forEach((r, i) => {
     const rowitems = r.children; //cols in each row
     tourns.push({
         "date": rowitems[2].querySelector(".hidden").textContent.trim(), // access when (for topic) -- note the hidden. each date col has the unix time hidden inside it
         "category": rowitems[3].textContent.trim(), // access category
-        "vote": rowitems[7].textContent.trim() // access vote
+        "vote": rowitems[7].textContent.trim(), // access vote
+        "aff": rowitems[6].textContent.trim(),
+        "neg": rowitems[5].textContent.trim()
     })
 });
 
@@ -89,12 +104,26 @@ tourns.forEach(tourn => {
     } else {
         vote = "Aff";
     }
+
+    //increments win counts by checking for school
+    if(school != null ) {
+            if (tourn["aff"].includes(school) || tourn["neg"].includes(school)) {
+            if((vote.toLowerCase() === "neg" && tourn["neg"].includes(school) || vote.toLowerCase() === "aff" && tourn["aff"].includes(school))) {
+                swins += 1;
+            } else {
+                sloss -= 1;
+            }
+        }
+    }
+
     formattedtourns.push({ // creates a full array of objects containing vote stats
         "year": date.getFullYear(),
         "month": date.getMonth()+1,
         "topic": topic,
         "category": category,
-        "vote": vote
+        "vote": vote,
+        "aff": tourn.aff,
+        "neg": tourn.neg
     })
 });
 
@@ -159,6 +188,8 @@ if (pfaffpct > pfnegpct) {
     pflead = "Split"
 }
 
+
+
 const topicpfaff = []
 const topicpfneg = []
 pftopic.forEach(t => {
@@ -185,6 +216,15 @@ if (topicpfaffpct > topicpfnegpct) {
 } else {
     topicpfpct = 50;
     topicpflead = "Split"
+}
+
+let spct = Math.round((swins/(swins+sloss)*100)*100)/100;
+if (spct == null) { 
+    spct = "Set your school in settings!"
+} else if (isNaN(spct)) {
+    spct = null;
+} else {
+    spct = String(spct)+"%"
 }
 
 
@@ -322,6 +362,7 @@ fetch(chrome.runtime.getURL("stats/stats.html"))
         const ldleadspan = document.getElementById("ldlead");
         const wspctspan = document.getElementById("wspct");
         const wsleadspan = document.getElementById("wslead");
+        const spctspan = document.getElementById("spct");
 
         totalyearspan.textContent = yearcount;
         totalroundspan.textContent = formattedtourns.length;
@@ -338,5 +379,6 @@ fetch(chrome.runtime.getURL("stats/stats.html"))
         ldleadspan.textContent = topicldlead;
         wspctspan.textContent = topicwspct;
         wsleadspan.textContent = topicwslead;
+        spctspan.textContent = spct;
         
     })
